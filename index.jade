@@ -1,0 +1,11 @@
+doctype html
+html
+	include ./includes/head.jade
+	body
+		h1 Sudoku
+		p Welcome to Sudoku.
+		script
+			$( document ).ready( function() {
+				var game = Sudoku.getInstance();
+			});
+		include ./includes/foot.jade
