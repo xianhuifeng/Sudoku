@@ -6,12 +6,12 @@ header {
 	border: 1px solid red;
 }
 #gameBoard {
-	width: auto;
+	/*width: auto;*/
 	height: 300px;
 	border: 2px solid green;
 }
 #userCtrlBoard {
-	width: auto;
+	/*width: auto;*/
 	height: 300px;
 	border: 1px solid blue;
 }
