@@ -5,13 +5,24 @@ header {
 	color: purple;
 	border: 1px solid red;
 }
-#gameBoard {
+#gameBoardContainer {
 	/*width: auto;*/
-	height: 280px;
+	height: 320px;
 	border: 2px solid green;
 }
-#userCtrlBoard {
+#userCtrlContainer {
 	/*width: auto;*/
 	/*height: 300px;*/
 	border: 1px solid blue;
+}
+.parentMatrix {
+	background-color: black;
+	width: 320px;
+	height: 320px;
+}
+.childMatrix {
+	background-color: pink;
+	width: 100px;
+	height: 100px;
+
 }
