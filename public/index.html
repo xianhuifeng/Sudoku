@@ -1,0 +1,9 @@
+<!DOCTYPE html><html><head><title>Sudoku</title><link rel="stylesheet" href="./style/reset.css"><link rel="stylesheet" href="./style/style.css"><script src="./bower_components/jquery/dist/jquery.js"></script><script src="./js/main.js"></script></head><body><header>Sudoku</header><div id="gameBoard"></div><div id="userCtrlBoard"><button class="restart">Restart</button><button class="solution">Solution</button><button class="newGame">New Game</button></div><article><p class="articleTitle">How to play?</p><p class="articleContent">If you don't know how to play, just
+click the solution button. I can
+help you.</p><p class="articleEnd">Have fun!</p></article><script>$(document).ready(function() {
+	var game = Sudoku.getInstance();
+	//when load page should append a new gameboard
+	//when click clear should reset the gameboard
+	//when click newGame should generate a new gameboard
+	//when click solution should generate a solution gameboard
+});</script><footer><p>Copyright (c) Sudoku XianhuiFeng</p></footer></body></html>
