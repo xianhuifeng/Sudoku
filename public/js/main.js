@@ -26,8 +26,8 @@ var Sudoku = ( function ($) {
 	Game.prototype.buildBoard = function () {
 		//make table
 		var N = 9;
-		var $tr, $td;
-		var $table = $('<table>');
+		var $tr, $td, sectIDi, sectIDj;
+		var $table = $('<table>').addClass('parent-matrix');
 			//make 9 rows
 			for (var i = 0; i < N ; i++) {
 				$tr = $('<tr>');
@@ -42,14 +42,16 @@ var Sudoku = ( function ($) {
 					$td = $('<td>').append(this.$cellMatrix[i][j]);
 					//$td = $('<td>').append('<p>funny</p>');
 					//check the section of the input
-
-						//if section even
-							//addClass sectionEven
-						//else
-							//addClass sectionOdd
+					sectIDi = Math.floor( i / 3 );
+					sectIDj = Math.floor( j / 3 );
+					// Set the design for different sections
+					if ( ( sectIDi + sectIDj ) % 2 === 0 ) {
+						$td.addClass( 'section-even' );
+					} else {
+						$td.addClass( 'section-odd' );
+					}
 					$tr.append($td);
 				};
-				console.log($tr);
 				$table.append($tr);
 			};
 		return $table;

@@ -5,24 +5,37 @@ header {
 	color: purple;
 	border: 1px solid red;
 }
-#gameBoardContainer {
-	/*width: auto;*/
-	height: 320px;
+#game-board-container {
+	/*width: 320px;*/
+	height: 320px; /* 320px / 320px */
 	border: 2px solid green;
 }
-#userCtrlContainer {
+#user-ctrl-container {
 	/*width: auto;*/
 	/*height: 300px;*/
 	border: 1px solid blue;
 }
-.parentMatrix {
+.parent-matrix {
 	background-color: black;
 	width: 320px;
-	height: 320px;
+	height: 320px; 
 }
-.childMatrix {
-	background-color: pink;
-	width: 100px;
-	height: 100px;
+#game-board-container input {
+	width: 0.1109375em; /* 35.5px / 320px */
+	height: 0.1109375em; /* 35.5px / 320px */
+	text-align: center;
+	font-size: 20px;
+	padding: 0;
+	border: 1px #ccc solid;
+	background: transparent;
+}
+.section-even {
+	background-color: #ff0073;
+
+}
+.section-odd {
+	background-color: #00ffcc;
+	/*width: 100px;*/
+	/*height: 100px;*/
 
 }

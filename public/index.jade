@@ -3,18 +3,18 @@ html
 	include includes/head.jade
 	body
 		header Sudoku
-		div#gameBoardContainer
-		div#userCtrlContainer
+		div#game-board-container
+		div#user-ctrl-container
 			button.restart Restart
 			button.solution Solution
-			button.newGame New Game
+			button.new-game New Game
 		article
-			p.articleTitle How to play?
-			p.articleContent.
+			p.article-title How to play?
+			p.article-content.
 				If you don't know how to play, just
 				click the solution button. I can
 				help you.
-			p.articleEnd Have fun!
+			p.article-end Have fun!
 
 
 
@@ -23,7 +23,7 @@ html
 			$(document).ready(function() {
 				var game = Sudoku.getInstance();
 				//when load page should append a new gameboard
-				$('#gameBoardContainer').append(game.gameBoard());
+				$('#game-board-container').append(game.gameBoard());
 				//when click clear should reset the gameboard
 				//when click newGame should generate a new gameboard
 				//when click solution should generate a solution gameboard
