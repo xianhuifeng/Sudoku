@@ -1,0 +1,23 @@
+{
+  "name": "Sudoku",
+  "version": "0.0.0",
+  "description": "Sudoku ======",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xianhuifeng/Sudoku.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xianhuifeng/Sudoku/issues"
+  },
+  "homepage": "https://github.com/xianhuifeng/Sudoku",
+  "dependencies": {
+    "express": "^4.9.0"
+  }
+}
