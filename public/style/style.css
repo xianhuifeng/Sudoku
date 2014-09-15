@@ -2,15 +2,22 @@ html {
 	height: 100%;
 }
 body {
-	/*background-color: #000033;*/
-	color: black;
+	background: url(../imgs/cubes.png) ;
+	background-color: rgb(92, 151, 191);
+	color: ;
 	height: 100%;
 }
 header {
 	height: 9.5%;  /*  32px/320px */
 	border: 1px solid black;
 }
-
+footer {
+	font-size: 0.5em;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	bottom: -10%;
+}
 #game-board-container {
 	position: relative; /*set to relative for child element position absolute use, so child can use this as base*/
 	width: 100%;
@@ -30,16 +37,16 @@ header {
 		padding-bottom: 11.1125%; /* 35.56px / 320px */
 		width: 11.1125%; /* 35.56px / 320px */
 		height: 0;
-		background: red;
-		opacity: 0.6;
+		background-color: white;
+		/*opacity: 0.6;*/
 	}
 	.section-odd {
 		position: relative;
 		padding-bottom: 11.1125%; /* 35.56px / 320px */
 		width: 11.1125%; /* 35.56px / 320px */
 		height: 0;
-		background-color: purple;
-		opacity: 0.75;
+		background-color: #ccc;
+		/*opacity: 0.75;*/
 	}
 	#game-board-container input {
 		position: absolute;
@@ -50,13 +57,13 @@ header {
 		padding: 0;
 		top: 0;
 		left: 0;
-		border: 1px #ccc solid;
+		border: 1px black solid;
 		background: transparent;
 	}
 
 #user-ctrl-container {
 	height: 13.1125%;
-	border: 1px solid red;
+	border: 1px solid gray;
 }
 #user-ctrl-container button {
 	width: 33.33% ;/* 106.65px/ 320px*/
@@ -67,13 +74,7 @@ header {
 article {
 	font-size: 1em;
 }
-footer {
-	font-size: 0.5em;
-	width: 100%;
-	text-align: center;
-	position: relative;
-	bottom: -10%;
-}
+
 
 /* Crappy Android portrait · width: 240px */
 @media (max-width: 240px) {
@@ -124,7 +125,7 @@ footer {
 		float: right;
 	}
 	article{
-		border: 1px solid red;
+		border: 1px solid gray;
 		margin-top: 40%;
 	}
 
@@ -166,7 +167,7 @@ footer {
 
 	}
 	article{
-		border: 1px solid red;
+		border: 1px solid gray;
 		margin-top: 11%;
 		width: 26%;
 		/*font-size: 0.6em;*/
