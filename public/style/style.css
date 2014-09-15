@@ -2,12 +2,11 @@ html {
 	height: 100%;
 }
 body {
+	/*background-color: #000033;*/
 	color: black;
 	height: 100%;
 }
 header {
-	background-color: purple;
-	color: purple;
 	height: 9.5%;  /*  32px/320px */
 	border: 1px solid black;
 }
@@ -96,7 +95,6 @@ footer {
 		font-size: 20px;
 	}
 	header {
-		background-color: yellow;
 		height: 13.5%;
 	}
 }
@@ -148,7 +146,6 @@ footer {
 	header {
 		width: 26%;
 		height: 15%;
-		background-color: orange;
 	}
 	#game-board-container {
 		width: 41.33%;
