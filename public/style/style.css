@@ -2,18 +2,18 @@ html {
 	height: 100%;
 }
 body {
-	color: green;
+	color: black;
 	height: 100%;
 }
 header {
 	/*padding-bottom: 15%;  15% of width of body*/
 	/*margin-bottom: 0.5em;*/
-	background-color: green;
+	background-color: purple;
 	color: purple;
 	/*border: 1px solid red;*/
-	height: 10%;  /*  32px/320px */
+	height: 9.5%;  /*  32px/320px */
 	/*font-size: 4.5em;*/
-	border: 1px solid yellow;
+	border: 1px solid black;
 }
 
 #game-board-container {
@@ -66,16 +66,35 @@ header {
 	/*width: auto;*/
 	height: 13.1125%;
 	/*margin-top: 1px;*/
-	border: 1px solid green;
+	border: 1px solid red;
 }
 #user-ctrl-container button {
 	width: 33.33% ;/* 106.65px/ 320px*/
 	height: 100%;
 	font-size: 1.25em;
-	border: 1px solid blue;
+	border: 1px solid black;
 }
-
-@media (min-width: 768px) {
+footer {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	bottom: -10%;
+}
+@media (max-width: 240px) {
+	body {
+		font-size: 12px;
+	}
+	#user-ctrl-container button {
+		height: 76%;
+	}
+}
+@media (min-width: 480px) and (max-width: 600px) {
+	header {
+		background-color: yellow;
+		height: 13.5%;
+	}
+}
+@media (min-width: 601px) and (max-width: 768px) {
 	header {
 		width: 33.33%;
 		height: 15%;
@@ -85,19 +104,95 @@ header {
 		width: 56.66%;
 		/*right: 10%;*/
 		float: right;
-		margin-right: 10%;
+		margin-right: 5%;
 		padding-bottom: 56.66%;
 		/*margin-left: 33.33%;*/
 	}
 	#user-ctrl-container {
-		height:  39.3375%;/* 13.1125% * 3 */
+		/*height:  39.3375%; 13.1125% * 3 */
+		height: 22.22%;
 		width: 33.33%;
+		/*margin-top: 30%; /**/
+		/*position: relative;*/
+		/*top: 24.5%;*/
 	}
-
 	#user-ctrl-container button {
 		/*float: left;*/
 		height: 33.33%;
 		/*display: block;*/
-		width: 100%;
+		width: 66.66%;
+		float: right;
 	}
+	article{
+		/*padding-top: 5%;*/
+		border: 1px solid red;
+		margin-top: 40%;
+		/*height: 10%;*/
+		/*position: relative;*/
+		/*float: right;*/
+		/*height: 50%;*/
+		/*top: 33.33%;*/
+	}
+
+	article p {
+		font-size: 1.25em;
+		border: 1px solid black;
+		padding-left: 38.33%;
+		padding-right: 4.5%; 
+		text-align: center;
+	}
+}
+
+@media  (min-width: 769px) {
+	header {
+		/*position: relative;*/
+		/*top: 7%;*/
+		width: 26%;
+		height: 15%;
+		background-color: orange;
+	}
+	#game-board-container {
+		width: 41.33%;
+		/*right: 10%;*/
+		height: 0;
+		float: right;
+		margin-right: 30%;
+		/*margin-top: -3%;*/
+		padding-bottom: 40.66%;
+		/*margin-left: 33.33%;*/
+	}
+	#user-ctrl-container {
+		/*height: 0;*/
+		height: 22.22%;
+		width: 26%;
+		/*smargin-top: 28.33%;*/
+		/*height:  39.3375%; 13.1125% * 3 */
+/*		height: 30%;
+		width: 36%;
+		margin-top: 18%;
+		margin-bottom: 3%; */
+		/*position: relative;*/
+		/*top: 24.5%;*/
+	}
+	#user-ctrl-container button{
+		/*position: block;*/
+		width: 100%;
+		height: 33.33%;
+	}
+	article{
+		border: 1px solid red;
+		margin-top: 11%;
+		width: 26%;
+		font-size: 1.25em;
+		text-align: center;
+		/*height: 10%;*/
+		/*float: right;*/
+		/*height: 50%;*/
+	}
+	article p {
+		/*font-size: 1.25em;*/
+		border: 1px solid black;
+		/*text-align: center;*/
+	}
+
 }
