@@ -37,21 +37,43 @@ var Sudoku = ( function ($) {
 				for (var j = 0; j < this.N ; j++) {
 					var self = this;
 					self.$cellMatrix[i][j] = $('<input>')
+													.addClass('input-style')
 													.attr('maxlength', 1)
 													.attr('dirty', false) //This attr is used for clearBoard().
 													.data('row', i)
 													.data('col', j)
-													.keyup(function() {
+													.keyup(function(e) {
 
-														$(this).attr('dirty', true); //This attr is used for clearBoard() also.	
+														//if KeyCode is not 8, it means users are inserting value to input
+														//We should set dirty to true
+														//We also should check if it is validate or not
+														//if validtae, remove input-style and add input-validate-false style
+														//if not, alert for now
+														if(e.keyCode != 8){
+															$(this).attr('dirty', true); //This attr is used for clearBoard() also.	
+
+															//Check input validatipn
+															var isValidate = self.inputValidate(self.$cellMatrix, $(this).val(), $(this).data());
+															if(!isValidate){
+																$(this).removeClass('input-style');
+																$(this).addClass('input-validate-false');
+															} else {
+																alert('hey good guess');
+															}
+														} 
+
+
+														//if keyCode is 8, it means the user pressed Delete button
+														//We need to set the current input dirty to false again
+														//And we need to swap classes back
 														
-														//Check input validatipn
-														var isValidate = self.inputValidate(self.$cellMatrix, $(this).val(), $(this).data());
-														if(!isValidate){
-															$(this).css('background-color','#34495E');
-														} else {
-															$(this).css('background-color','transparent');
+														if (e.keyCode === 8) {
+															$(this).attr('dirty', false);
+															$(this).removeClass('input-validate-false');
+															$(this).addClass('input-style');
 														}
+														
+						
 
 													});
 
@@ -88,7 +110,7 @@ var Sudoku = ( function ($) {
 				*/
 				if(this.$cellMatrix[i][j].attr('dirty') === "true"){ // Here need to consider true as a string
 					this.$cellMatrix[i][j].val('');
-
+					this.$cellMatrix[i][j].css('background-color', 'transparent');
 					/*This takes care of solution data value and user input value both
 					*If it was user input value, only dirty set back to false
 					*If it was solution data value, set dirty back to false and set disabled back to false
@@ -119,6 +141,7 @@ var Sudoku = ( function ($) {
 		//Check data validation by row.
 		for (var i = 0; i < this.N ; i++) {
 			if(i !== col && cellMatrix[row][i].val() === value){
+				// cellMatrix[row][i].css('background-color', 'green');
 				validData = false;
 				return validData;
 			}
@@ -126,6 +149,7 @@ var Sudoku = ( function ($) {
 		//Check data validation by col.
 		for (var j = 0; j < this.N ; j++) {
 			if(j !== row && cellMatrix[j][col].val() === value){
+				// cellMatrix[j][col].css('background-color', 'green');
 				validData = false;
 				return validData;
 			}
