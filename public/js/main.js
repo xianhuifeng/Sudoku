@@ -42,39 +42,11 @@ var Sudoku = ( function ($) {
 													.attr('dirty', false) //This attr is used for clearBoard().
 													.data('row', i)
 													.data('col', j)
-													.keyup(function(e) {
-
-														//if KeyCode is not 8, it means users are inserting value to input
-														//We should set dirty to true
-														//We also should check if it is validate or not
-														//if validtae, remove input-style and add input-validate-false style
-														//if not, alert for now
-														if(e.keyCode != 8){
-															$(this).attr('dirty', true); //This attr is used for clearBoard() also.	
-
-															//Check input validatipn
-															var isValidate = self.inputValidate(self.$cellMatrix, $(this).val(), $(this).data());
-															if(!isValidate){
-																$(this).removeClass('input-style');
-																$(this).addClass('input-validate-false');
-															} else {
-																alert('hey good guess');
-															}
-														} 
-
-
-														//if keyCode is 8, it means the user pressed Delete button
-														//We need to set the current input dirty to false again
-														//And we need to swap classes back
-														
-														if (e.keyCode === 8) {
-															$(this).attr('dirty', false);
-															$(this).removeClass('input-validate-false');
-															$(this).addClass('input-style');
-														}
-														
-						
-
+													.keyup(function (e) {
+														//This function takes there parameters. The first argument gets injected 
+														//is the event; the second is the current content which related to the event keyup;
+														//and the third argumet is the object Game itself.
+														self.onKeyUp(e, this, self);
 													});
 
 					$td = $('<td>').append(this.$cellMatrix[i][j]);
@@ -155,6 +127,39 @@ var Sudoku = ( function ($) {
 			}
 		};
 		return validData;
+	};
+
+	Game.prototype.onKeyUp = function (e,content,self) {
+		console.log('what is self', self);
+		console.log('what is content', content);
+		//if KeyCode is not 8, it means users are inserting value to input
+		//We should set dirty to true
+		//We also should check if it is validate or not
+		//if validtae, remove input-style and add input-validate-false style
+		//if not, alert for now
+		if(e.keyCode != 8){
+			$(content).attr('dirty', true); //content attr is used for clearBoard() also.	
+
+			//Check input validatipn
+			var isValidate = self.inputValidate(self.$cellMatrix, $(content).val(), $(content).data());
+			if(!isValidate){
+				$(content).removeClass('input-style');
+				$(content).addClass('input-validate-false');
+			} else {
+				alert('hey good guess');
+			}
+		} 
+
+
+		//if keyCode is 8, it means the user pressed Delete button
+		//We need to set the current input dirty to false again
+		//And we need to swap classes back
+		
+		if (e.keyCode === 8) {
+			$(content).attr('dirty', false);
+			$(content).removeClass('input-validate-false');
+			$(content).addClass('input-style');
+		}
 	};
 
 	//Singleton public methods
