@@ -62,6 +62,37 @@ var getSolutionData = function (cellMatrix) {
 	setSolutionVal(3,1,5);
 	setSolutionVal(3,2,9);
 	setSolutionVal(3,3,7);
+	setSolutionVal(3,5,1);
+	setSolutionVal(3,6,4);
+	setSolutionVal(3,7,2);
+	setSolutionVal(4,1,2),
+	setSolutionVal(4,2,6);
+	setSolutionVal(4,4,5);
+	setSolutionVal(4,6,7);
+	setSolutionVal(4,7,9);
+	setSolutionVal(5,1,1);
+	setSolutionVal(5,2,3);
+	setSolutionVal(5,3,9);
+	setSolutionVal(5,5,4);
+	setSolutionVal(5,6,8);
+	setSolutionVal(5,7,5);
+	setSolutionVal(6,0,9);
+	setSolutionVal(6,2,1);
+	setSolutionVal(6,3,5);
+	setSolutionVal(6,4,3);
+	setSolutionVal(6,5,7);
+	setSolutionVal(6,8,4);
+	setSolutionVal(7,0,2);
+	setSolutionVal(7,1,8);
+	setSolutionVal(7,2,7);
+	setSolutionVal(7,6,6);
+	setSolutionVal(7,7,3);
+	setSolutionVal(8,0,3);
+	setSolutionVal(8,1,4);
+	setSolutionVal(8,2,5);
+	setSolutionVal(8,3,2);
+	setSolutionVal(8,5,6);
+	setSolutionVal(8,6,1);
 };
 
 
