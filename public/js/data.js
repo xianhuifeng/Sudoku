@@ -1,0 +1,35 @@
+	var DummyBoardInputValsGenerator = function (cellMatrix) {
+		function setVal(i, j, value) {
+			cellMatrix[i][j].val(value).attr('disabled', true);
+		}; 
+		setVal(0,0,5);
+		setVal(0,1,3);
+		setVal(0,4,7);
+		setVal(1,0,6);
+		setVal(1,3,1);
+		setVal(1,4,9);
+		setVal(1,5,5);
+		setVal(2,1,9);
+		setVal(2,2,8);
+		setVal(2,7,6);
+		setVal(3,0,8);
+		setVal(3,4,6);
+		setVal(3,8,3);
+		setVal(4,0,4);
+		setVal(4,3,8);
+		setVal(4,5,3);
+		setVal(4,8,1);
+		setVal(5,0,7);
+		setVal(5,4,2);
+		setVal(5,8,6);
+		setVal(6,1,6);
+		setVal(6,6,2);
+		setVal(6,7,8);
+		setVal(7,3,4);
+		setVal(7,4,1);
+		setVal(7,5,9);
+		setVal(7,8,5);
+		setVal(8,4,8);
+		setVal(8,7,7);
+		setVal(8,8,9);
+	};

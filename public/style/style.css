@@ -2,17 +2,19 @@ html {
 	height: 100%;
 }
 body {
-	background: url(../imgs/cubes.png) ;
-	background-color: rgb(92, 151, 191);
-	color: ;
+	background-color: #66CC99;
+	/*background: url(../imgs/cubes.png) ;*/
+	color: #fff;
+	font-family: 'Monterrat', sans-serif;
+	font-weight: 400;
 	height: 100%;
 }
 header {
 	height: 9.5%;  /*  32px/320px */
-	border: 1px solid black;
+	/*border: 1px solid white;*/
 }
 footer {
-	font-size: 0.5em;
+	font-size: 0.7em;
 	width: 100%;
 	text-align: center;
 	position: relative;
@@ -23,7 +25,7 @@ footer {
 	width: 100%;
 	padding-bottom: 100%;/* 100% of width */
 	height: 0px;  /*set height to 0 so we can use padding-bottom to as container*/
-	border: 1px solid black;
+	border-top: 10px solid #E08283;
 }
 	.parent-matrix {/*parent===#game-board-container*/
 		position: absolute; /*set to absolute to get rid of height limit from parent*/
@@ -38,17 +40,19 @@ footer {
 		width: 11.1125%; /* 35.56px / 320px */
 		height: 0;
 		background-color: white;
-		/*opacity: 0.6;*/
+		/*opacity: 0.5; */
 	}
 	.section-odd {
 		position: relative;
 		padding-bottom: 11.1125%; /* 35.56px / 320px */
 		width: 11.1125%; /* 35.56px / 320px */
 		height: 0;
-		background-color: #ccc;
+		background-color: #ECF0F1;
 		/*opacity: 0.75;*/
 	}
 	#game-board-container input {
+		
+		color: #1E824C;
 		position: absolute;
 		width: 100%; /* 35.56px / 35.56px */
 		height: 100%; /* 35.56px / 35.56px */
@@ -57,21 +61,24 @@ footer {
 		padding: 0;
 		top: 0;
 		left: 0;
-		border: 1px black solid;
+		border: 0.06em #66CC99 solid;
 		background: transparent;
 	}
 
 #user-ctrl-container {
-	height: 13.1125%;
-	border: 1px solid gray;
+	height: 10.5%;
+	/*border: 1px solid white;*/
 }
 #user-ctrl-container button {
 	width: 33.33% ;/* 106.65px/ 320px*/
 	height: 100%;
 	font-size: 1.25em;
-	border: 1px solid black;
+	border: 1px solid #66CC99;
+	background-color: #4DAF7C;
 }
+
 article {
+	text-align: center;
 	font-size: 1em;
 }
 
@@ -79,10 +86,16 @@ article {
 /* Crappy Android portrait · width: 240px */
 @media (max-width: 240px) {
 	body {
-		font-size: 12px;
+		font-size: 16px;
 	}
 	#user-ctrl-container button {
 		height: 76%;
+	}
+	#user-ctrl-container button {
+		font-size: 0.9em;
+	}
+	article {
+		font-size: 0.8em;
 	}
 }
 
@@ -93,17 +106,20 @@ article {
 /* Kindle portrait · width: 600px */
 @media (min-width: 480px) and (max-width: 600px) {
 	body {
-		font-size: 20px;
+		font-size: 17px;
 	}
 	header {
 		height: 13.5%;
+	}
+	#user-ctrl-container {
+		height: 12%;
 	}
 }
 
 /* iPad portrait · width: 768px */
 @media (min-width: 601px) and (max-width: 768px) {
 	body {
-		font-size: 20px;
+		font-size: 18px;
 	}
 	header {
 		width: 33.33%;
@@ -125,13 +141,13 @@ article {
 		float: right;
 	}
 	article{
-		border: 1px solid gray;
+		border: 1px solid white;
 		margin-top: 40%;
 	}
 
 	article p {
 		/*font-size: 1em;*/
-		border: 1px solid black;
+		border: 1px solid white;
 		padding-left: 38.33%;
 		padding-right: 4.5%; 
 		text-align: center;
@@ -167,7 +183,7 @@ article {
 
 	}
 	article{
-		border: 1px solid gray;
+		border: 1px solid white;
 		margin-top: 11%;
 		width: 26%;
 		/*font-size: 0.6em;*/
@@ -175,6 +191,6 @@ article {
 	}
 	article p {
 		font-size: 0.7em;
-		border: 1px solid black;
+		border: 1px solid white;
 	}
 }

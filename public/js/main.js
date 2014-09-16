@@ -32,13 +32,19 @@ var Sudoku = ( function ($) {
 			for (var i = 0; i < N ; i++) {
 				$tr = $('<tr>');
 				this.$cellMatrix[i] = {};
+
 				//for each row make 9 input 
 				for (var j = 0; j < N ; j++) {
 					this.$cellMatrix[i][j] = $('<input>')
 													.attr('maxlength', 1)
+													// .attr('disabled', true)
+													// .attr('value', 3)
 													.data('row', i)
 													.data('col', j)
-													.on('keyup', $.proxy(this.onKeyUp, this));
+													.keyup(function() {
+														console.log($(this).val());
+														//save val
+													});
 					$td = $('<td>').append(this.$cellMatrix[i][j]);
 					//$td = $('<td>').append('<p>funny</p>');
 					//check the section of the input
@@ -54,10 +60,13 @@ var Sudoku = ( function ($) {
 				};
 				$table.append($tr);
 			};
+		//This can be changed after generator function is implemented, but now we will only have one board
+		DummyBoardInputValsGenerator(this.$cellMatrix);
 		return $table;
 	};
 	Game.prototype.reset = function () {
 		//TODO
+		//input.val() set to null
 	};
 	Game.prototype.solution = function () {
 		//TODO
