@@ -2,9 +2,20 @@
 click the solution button. I can
 help you.</p><p class="article-end">Have fun!</p></article><script>$(document).ready(function() {
 	var game = Sudoku.getInstance();
+	
 	//when load page should append a new gameboard
 	$('#game-board-container').append(game.gameBoard());
+
 	//when click clear should reset the gameboard
+	$('.restart').on('click', function() {
+		game.reset();
+	});
+
 	//when click newGame should generate a new gameboard
+	$('.new-game').on('click', function() {
+		$('.parent-matrix').remove();
+		$('#game-board-container').append(game.gameBoard());
+	});
+
 	//when click solution should generate a solution gameboard
 });</script><footer><p>Copyright (c) Sudoku XianhuiFeng</p></footer></body></html>

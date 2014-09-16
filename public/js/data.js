@@ -1,6 +1,6 @@
 	var DummyBoardInputValsGenerator = function (cellMatrix) {
 		function setVal(i, j, value) {
-			cellMatrix[i][j].val(value).attr('disabled', true);
+			cellMatrix[i][j].attr('value',value).attr('disabled', true);
 		}; 
 		setVal(0,0,5);
 		setVal(0,1,3);

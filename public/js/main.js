@@ -7,7 +7,6 @@ var Sudoku = ( function ($) {
 		return {
 			//Return a visual representation of the board
 			gameBoard: function () {
-				console.log("here");
 				return _game.buildBoard();
 			},
 			reset: function () {
@@ -22,31 +21,28 @@ var Sudoku = ( function ($) {
 	//Game initialization and logic
 	var Game = function () {
 		this.$cellMatrix = {};
+		this.N = 9;
 	};
 	Game.prototype.buildBoard = function () {
 		//make table
-		var N = 9;
 		var $tr, $td, sectIDi, sectIDj;
 		var $table = $('<table>').addClass('parent-matrix');
 			//make 9 rows
-			for (var i = 0; i < N ; i++) {
+			for (var i = 0; i < this.N ; i++) {
 				$tr = $('<tr>');
 				this.$cellMatrix[i] = {};
 
 				//for each row make 9 input 
-				for (var j = 0; j < N ; j++) {
+				for (var j = 0; j < this.N ; j++) {
 					this.$cellMatrix[i][j] = $('<input>')
 													.attr('maxlength', 1)
-													// .attr('disabled', true)
-													// .attr('value', 3)
+													.attr('dirty',false)
 													.data('row', i)
 													.data('col', j)
 													.keyup(function() {
-														console.log($(this).val());
-														//save val
+														$(this).attr('dirty',true);
 													});
 					$td = $('<td>').append(this.$cellMatrix[i][j]);
-					//$td = $('<td>').append('<p>funny</p>');
 					//check the section of the input
 					sectIDi = Math.floor( i / 3 );
 					sectIDj = Math.floor( j / 3 );
@@ -64,9 +60,15 @@ var Sudoku = ( function ($) {
 		DummyBoardInputValsGenerator(this.$cellMatrix);
 		return $table;
 	};
-	Game.prototype.reset = function () {
-		//TODO
-		//input.val() set to null
+	Game.prototype.clearBoard = function () {
+		for (var i = 0; i < this.N; i++) {
+			for (var j = 0; j < this.N; j++) {
+					if(this.$cellMatrix[i][j].attr('dirty') === "true"){
+						this.$cellMatrix[i][j].val('');
+						this.$cellMatrix[i][j].attr('dirty', false);
+					}
+			};
+		};	
 	};
 	Game.prototype.solution = function () {
 		//TODO
@@ -78,7 +80,6 @@ var Sudoku = ( function ($) {
 		//get the Singleton instance
 		getInstance: function ( config ) {
 			if (!_instance) {
-			console.log('get instance');
 				_instance = init( config );
 			}
 			return _instance;
