@@ -22,7 +22,7 @@ html
 		script.
 			$(document).ready(function() {
 				var game = Sudoku.getInstance();
-				
+
 				//when load page should append a new gameboard
 				$('#game-board-container').append(game.gameBoard());
 
@@ -38,5 +38,8 @@ html
 				});
 
 				//when click solution should generate a solution gameboard
+				$('.solution').on('click', function () {
+					game.solution();
+				});
 			});
 		include includes/foot.jade

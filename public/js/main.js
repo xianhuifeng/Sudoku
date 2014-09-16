@@ -5,7 +5,6 @@ var Sudoku = ( function ($) {
 		conf = $.extend( {}, defaultConfig, config);
 		_game = new Game( conf );
 		return {
-			//Return a visual representation of the board
 			gameBoard: function () {
 				return _game.buildBoard();
 			},
@@ -13,40 +12,45 @@ var Sudoku = ( function ($) {
 				_game.clearBoard();
 			},
 			solution: function (){
-				return _game.getSolution();
+				_game.getSolution();
 			}
 		}
 	};
 
-	//Game initialization and logic
+	//Game initialization and logic.
 	var Game = function () {
 		this.$cellMatrix = {};
 		this.N = 9;
 	};
 	Game.prototype.buildBoard = function () {
-		//make table
 		var $tr, $td, sectIDi, sectIDj;
+
+		//Make a new table and add class style.
 		var $table = $('<table>').addClass('parent-matrix');
-			//make 9 rows
+
+			//Make nine rows for this table
 			for (var i = 0; i < this.N ; i++) {
 				$tr = $('<tr>');
 				this.$cellMatrix[i] = {};
 
-				//for each row make 9 input 
+				//For each row, we make nine table data and we append input to it.
 				for (var j = 0; j < this.N ; j++) {
 					this.$cellMatrix[i][j] = $('<input>')
 													.attr('maxlength', 1)
-													.attr('dirty',false)
+													.attr('dirty', false) //This attr is used for clearBoard().
 													.data('row', i)
 													.data('col', j)
 													.keyup(function() {
-														$(this).attr('dirty',true);
+														$(this).attr('dirty', true); //This attr is used for clearBoard() also.
 													});
+
 					$td = $('<td>').append(this.$cellMatrix[i][j]);
-					//check the section of the input
+
+					//Check the section of the input so we can set different class for each section
+					//and also we will use this section for validation.
 					sectIDi = Math.floor( i / 3 );
 					sectIDj = Math.floor( j / 3 );
-					// Set the design for different sections
+
 					if ( ( sectIDi + sectIDj ) % 2 === 0 ) {
 						$td.addClass( 'section-even' );
 					} else {
@@ -56,23 +60,38 @@ var Sudoku = ( function ($) {
 				};
 				$table.append($tr);
 			};
-		//This can be changed after generator function is implemented, but now we will only have one board
+
+		/*
+		*This can be changed after generator function is implemented, 
+		*however now we will only have one board.
+		*In future, we will add random fucntion for BoardInputValsGenerator
+		*/
 		DummyBoardInputValsGenerator(this.$cellMatrix);
 		return $table;
 	};
 	Game.prototype.clearBoard = function () {
 		for (var i = 0; i < this.N; i++) {
 			for (var j = 0; j < this.N; j++) {
-					if(this.$cellMatrix[i][j].attr('dirty') === "true"){
-						this.$cellMatrix[i][j].val('');
-						this.$cellMatrix[i][j].attr('dirty', false);
-					}
+
+				/*Check if the input attr is dirty or not, if is, clear val and set to false
+				*In this case, both user input and solution data can make attr dirty true	
+				*/
+				if(this.$cellMatrix[i][j].attr('dirty') === "true"){ // Here need to consider true as a string
+					this.$cellMatrix[i][j].val('');
+
+					/*This takes care of solution data value and user input value both
+					*If it was user input value, only dirty set back to false
+					*If it was solution data value, set dirty back to false and set disabled back to false
+					*/
+					this.$cellMatrix[i][j].attr('dirty', false).attr('disabled', false);
+				}
 			};
 		};	
 	};
-	Game.prototype.solution = function () {
-		//TODO
-		return solution;
+	Game.prototype.getSolution = function () {
+		//Call method clearBoard() to set back attr dirty, disabled, and val()
+		this.clearBoard();
+		getSolutionData(this.$cellMatrix);
 	};
 
 	//Singleton public methods

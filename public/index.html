@@ -2,7 +2,7 @@
 click the solution button. I can
 help you.</p><p class="article-end">Have fun!</p></article><script>$(document).ready(function() {
 	var game = Sudoku.getInstance();
-	
+
 	//when load page should append a new gameboard
 	$('#game-board-container').append(game.gameBoard());
 
@@ -18,4 +18,7 @@ help you.</p><p class="article-end">Have fun!</p></article><script>$(document).r
 	});
 
 	//when click solution should generate a solution gameboard
+	$('.solution').on('click', function () {
+		game.solution();
+	});
 });</script><footer><p>Copyright (c) Sudoku XianhuiFeng</p></footer></body></html>
