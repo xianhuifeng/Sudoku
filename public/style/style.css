@@ -51,7 +51,7 @@ footer {
 		/*opacity: 0.75;*/
 	}
 	#game-board-container input {
-		
+
 		color: #1E824C;
 		position: absolute;
 		width: 100%; /* 35.56px / 35.56px */
@@ -141,13 +141,13 @@ article {
 		float: right;
 	}
 	article{
-		border: 1px solid white;
+		/*border: 1px solid white;*/
 		margin-top: 40%;
 	}
 
 	article p {
 		/*font-size: 1em;*/
-		border: 1px solid white;
+		/*border: 1px solid white;*/
 		padding-left: 38.33%;
 		padding-right: 4.5%; 
 		text-align: center;
@@ -183,14 +183,19 @@ article {
 
 	}
 	article{
-		border: 1px solid white;
+		/*border: 1px solid white;*/
 		margin-top: 11%;
-		width: 26%;
+		margin-left: 7.5%;
+		width: 18.5%;
 		/*font-size: 0.6em;*/
 		text-align: center;
 	}
 	article p {
 		font-size: 0.7em;
-		border: 1px solid white;
+		/*border: 1px solid white;*/
+	}
+	footer {
+		padding-left: 5%;
+		font-size: 0.5em;
 	}
 }
