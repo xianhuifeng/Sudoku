@@ -35,17 +35,27 @@ var Sudoku = ( function ($) {
 
 				//For each row, we make nine table data and we append input to it.
 				for (var j = 0; j < this.N ; j++) {
-					this.$cellMatrix[i][j] = $('<input>')
+					var self = this;
+					self.$cellMatrix[i][j] = $('<input>')
 													.attr('maxlength', 1)
 													.attr('dirty', false) //This attr is used for clearBoard().
 													.data('row', i)
 													.data('col', j)
 													.keyup(function() {
-														$(this).attr('dirty', true); //This attr is used for clearBoard() also.
+
+														$(this).attr('dirty', true); //This attr is used for clearBoard() also.	
+														
+														//Check input validatipn
+														var isValidate = self.inputValidate(self.$cellMatrix, $(this).val(), $(this).data());
+														if(!isValidate){
+															$(this).css('background-color','#34495E');
+														} else {
+															$(this).css('background-color','transparent');
+														}
+
 													});
 
 					$td = $('<td>').append(this.$cellMatrix[i][j]);
-
 					//Check the section of the input so we can set different class for each section
 					//and also we will use this section for validation.
 					sectIDi = Math.floor( i / 3 );
@@ -92,6 +102,35 @@ var Sudoku = ( function ($) {
 		//Call method clearBoard() to set back attr dirty, disabled, and val()
 		this.clearBoard();
 		getSolutionData(this.$cellMatrix);
+	};
+
+	//This validation is not implemented yet,
+	//it still needs to check odd and even parts. Finish it
+	//later.
+	Game.prototype.inputValidate = function (cellMatrix, value, data) {
+		console.log(value, data);
+		if(value === ""){
+			return true;
+		}
+		var validData = true;
+		var row = data.row;
+		var col = data.col;
+
+		//Check data validation by row.
+		for (var i = 0; i < this.N ; i++) {
+			if(i !== col && cellMatrix[row][i].val() === value){
+				validData = false;
+				return validData;
+			}
+		}
+		//Check data validation by col.
+		for (var j = 0; j < this.N ; j++) {
+			if(j !== row && cellMatrix[j][col].val() === value){
+				validData = false;
+				return validData;
+			}
+		};
+		return validData;
 	};
 
 	//Singleton public methods

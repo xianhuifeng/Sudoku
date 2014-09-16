@@ -64,6 +64,10 @@ footer {
 		border: 0.06em #66CC99 solid;
 		background: transparent;
 	}
+	.inputValidateFalse {
+		color: red;
+		background: red;
+	}
 
 #user-ctrl-container {
 	height: 10.5%;
@@ -81,6 +85,7 @@ article {
 	text-align: center;
 	font-size: 1em;
 }
+
 
 
 /* Crappy Android portrait · width: 240px */
