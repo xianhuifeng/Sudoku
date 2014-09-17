@@ -1,234 +1,257 @@
 html {
-	height: 100%;
+    height: 100%;
 }
 body {
-	background-color: #66CC99;
-	/*background: url(../imgs/cubes.png) ;*/
-	color: #fff;
-	font-family: 'Monterrat', sans-serif;
-	font-weight: 100;
-	height: 100%;
+    background-color: #78c2a9;
+    /*background: url(../imgs/cubes.png) ;*/
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    height: 100%;
 }
 header {
-	height: 9.5%;  /*  32px/320px */
-	/*border: 1px solid white;*/
+    height: 9.5%;
+    /*  32px/320px */
+    /*border: 1px solid white;*/
 }
 footer {
-	font-size: 0.7em;
-	width: 100%;
-	text-align: center;
-	position: relative;
-	bottom: -10%;
+    font-size: 0.7em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: -10%;
 }
 #game-board-container {
-	position: relative; /*set to relative for child element position absolute use, so child can use this as base*/
-	width: 100%;
-	padding-bottom: 100%;/* 100% of width */
-	height: 0px;  /*set height to 0 so we can use padding-bottom to as container*/
-	border-top: 10px solid #E08283;
+    position: relative;
+    /*set to relative for child element position absolute use, so child can use this as base*/
+    width: 100%;
+    padding-bottom: 100%;
+    /* 100% of width */
+    height: 0px;
+    /*set height to 0 so we can use padding-bottom to as container*/
+    border-top: 4px solid #F62459;
+    /*border-bottom: 10px solid #F27935;*/
 }
-	.parent-matrix {/*parent===#game-board-container*/
-		position: absolute; /*set to absolute to get rid of height limit from parent*/
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%; 
-	}
-	.section-even {
-		position: relative;
-		padding-bottom: 11.1125%; /* 35.56px / 320px */
-		width: 11.1125%; /* 35.56px / 320px */
-		height: 0;
-		background-color: white;
-		/*opacity: 0.5; */
-	}
-	.section-odd {
-		position: relative;
-		padding-bottom: 11.1125%; /* 35.56px / 320px */
-		width: 11.1125%; /* 35.56px / 320px */
-		height: 0;
-		background-color: #ECF0F1;
-		/*opacity: 0.75;*/
-	}
-
-	#game-board-container .input-validate-false {
-		/*color: #1E824C;*/
-		/*text-shadow: 2px 2px 1px #A7B0A4;*/
-		position: absolute;
-		width: 100%; /* 35.56px / 35.56px */
-		height: 100%; /* 35.56px / 35.56px */
-		text-align: center;
-		font-size: 1.25em; /* 20px/16px*/
-		padding: 0;
-		top: 0;
-		left: 0;
-		border: 0.06em #66CC99 solid;
-		/*background: transparent;*/
-	background-color: #D64541;
-	opacity: 0.8;
-	color: #ccc;
+.parent-matrix {
+    /*parent===#game-board-container*/
+    position: absolute;
+    /*set to absolute to get rid of height limit from parent*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
-	#game-board-container .input-style{
-
-		color: #1E824C;
-		/*text-shadow: 2px 2px 1px #A7B0A4;*/
-		position: absolute;
-		width: 100%; /* 35.56px / 35.56px */
-		height: 100%; /* 35.56px / 35.56px */
-		text-align: center;
-		font-size: 1.25em; /* 20px/16px*/
-		padding: 0;
-		top: 0;
-		left: 0;
-		border: 0.06em #66CC99 solid;
-		background: transparent;
-	}
-
-
+.section-even {
+    position: relative;
+    padding-bottom: 11.1125%;
+    /* 35.56px / 320px */
+    width: 11.1125%;
+    /* 35.56px / 320px */
+    height: 0;
+    background-color: white;
+}
+.section-odd {
+    position: relative;
+    padding-bottom: 11.1125%;
+    /* 35.56px / 320px */
+    width: 11.1125%;
+    /* 35.56px / 320px */
+    height: 0;
+    background-color: #ECF0F1;
+}
+.input-validate-false {
+    transform: rotateZ(360deg);
+    background-color: #D64541 !important;
+    color: #ccc;
+}
+.input-validate-true {
+    transform: rotateY(360deg);
+    background-color: #86E2D5 !important;
+}
+.input-style {
+    transform-style: preserve-3d;
+    transition: all 0.4s ease-in-out;
+    color: #3b434f;
+    position: absolute;
+    width: 100%;
+    /* 35.56px / 35.56px */
+    height: 100%;
+    /* 35.56px / 35.56px */
+    text-align: center;
+    font-size: 1.25em;
+    /* 20px/16px*/
+    font-weight: 400;
+    padding: 0;
+    top: 0;
+    left: 0;
+    border: 0.06em #78c2a9 solid;
+    background: transparent;
+}
 #user-ctrl-container {
-	height: 10.5%;
-	/*border: 1px solid white;*/
+    height: 10.5%;
+    /*border: 1px solid white;*/
 }
 #user-ctrl-container button {
-	width: 33.33% ;/* 106.65px/ 320px*/
-	height: 100%;
-	font-size: 1.25em;
-	border: 1px solid #66CC99;
-	background-color: #1E824C;
-	opacity: 0.7;
-	transition-property: background-color;
-  	transition-duration: 0.6s;
-  	transition-timing-function: linear;
+    width: 33.33%;
+    /* 106.65px/ 320px*/
+    height: 100%;
+    font-size: 1.25em;
+    font-weight: 300;
+    border: 1px solid #78c2a9;
+    background-color: #3b434f;
+    /*opacity: 0.7;*/
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
 }
 #user-ctrl-container button:hover {
-	 background-color: #1E824C;
-	 /*border-top: 10px solid #E08283;*/
-	 opacity: 0.9;
+    background-color: #fff;
+    color: #3b434f;
+    /*font-weight: 700;*/
+    /*border-top: 10px solid #E08283;*/
+    /*opacity: 0.9;*/
 }
-
 article {
-	text-align: center;
-	font-size: 1em;
+	padding: 0.4em;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    color: #fff;
 }
-
-
-
+.article-title {
+    font-weight: 600;
+}
 /* Crappy Android portrait · width: 240px */
-@media (max-width: 240px) {
-	body {
-		font-size: 14px;
-	}
-	#user-ctrl-container button {
-		height: 76%;
-	}
-	#user-ctrl-container button {
-		font-size: 0.9em;
-	}
-	article {
-		font-size: 0.8em;
-	}
-}
 
+@media (max-width: 241px) {
+    body {
+        font-size: 14px;
+    }
+    #user-ctrl-container button {
+        height: 100%;
+        font-size: 0.9em;
+    }
+    article {
+        font-size: 1.2em;
+    }
+}
+@media (min-width: 241px)and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    #user-ctrl-container button {
+        font-size: 1.2em;
+        font-weight: 50;
+    }
+    article {
+        font-size: 1.1em;
+    }
+}
 /* iPhone 3+4 landscape · width: 480px */
+
 /* iPhone 5 landscape · width: 568px */
+
 /* Android (Nexus 4) landscape · width: 600px */
+
 /* Kindle portrait · width: 600px */
+
 /* Kindle portrait · width: 600px */
+
 @media (min-width: 480px) and (max-width: 600px) {
-	body {
-		font-size: 17px;
-	}
-	header {
-		height: 13.5%;
-	}
-	#user-ctrl-container {
-		height: 12%;
-	}
-}
+    body {
+        font-size: 17px;
+    }
+    header {
+        height: 13.5%;
+    }
+    #user-ctrl-container {
+        height: 12%;
+    }
 
+}
 /* iPad portrait · width: 768px */
+
 @media (min-width: 601px) and (max-width: 768px) {
-	body {
-		font-size: 20px;
-	}
-	header {
-		width: 33.33%;
-		height: 15%;
-	}
-	#game-board-container {
-		width: 56.66%;
-		float: right;
-		margin-right: 5%;
-		padding-bottom: 56.66%;
-	}
-	#user-ctrl-container {
-		height: 22.22%;
-		width: 33.33%;
-	}
-	#user-ctrl-container button {
-		height: 33.33%;
-		width: 66.66%;
-		float: right;
-		font-size: 0.9em;
-	}
-	article{
-		/*border: 1px solid white;*/
-		margin-top: 40%;
-	}
+    body {
+        font-size: 20px;
+    }
+    header {
+        width: 33.33%;
+        height: 15%;
+    }
+    #game-board-container {
+        width: 56.66%;
+        float: right;
+        margin-right: 5%;
+        padding-bottom: 56.66%;
+    }
+    #user-ctrl-container {
+        height: 22.22%;
+        width: 33.33%;
+    }
+    #user-ctrl-container button {
+        height: 33.33%;
+        width: 66.66%;
+        float: right;
+        font-size: 0.9em;
+    }
+    article {
+        /*border: 1px solid white;*/
+        margin-top: 40%;
+    }
+    article p {
+        /*font-size: 1em;*/
+        /*border: 1px solid white;*/
+        font-size: 0.8em;
+        padding-left: 38.33%;
+        padding-right: 4.5%;
+        text-align: center;
+    }
 
-	article p {
-		/*font-size: 1em;*/
-		/*border: 1px solid white;*/
-		font-size: 0.8em;
-		padding-left: 38.33%;
-		padding-right: 4.5%; 
-		text-align: center;
-	}
 }
-
 /* iPad landscape · width: 1024px */
+
 /* Kindle landscape · width: 1024px */
-@media  (min-width: 769px) {
-	body {
-		font-size: 22px;
-	}
-	header {
-		width: 26%;
-		height: 15%;
-	}
-	#game-board-container {
-		width: 41.33%;
-		height: 0;
-		float: right;
-		margin-right: 30%;
-		padding-bottom: 40.66%;
-	}
-	#user-ctrl-container {
-		height: 22.22%;
-		width: 26%;
-	}
-	#user-ctrl-container button{
-		margin-left: 30%;
-		font-size: 0.8em;
-		width: 70%;
-		height: 33.33%;
 
-	}
-	article{
-		/*border: 1px solid white;*/
-		margin-top: 11%;
-		margin-left: 7.5%;
-		width: 18.5%;
-		/*font-size: 0.6em;*/
-		text-align: center;
-	}
-	article p {
-		font-size: 0.7em;
-		/*border: 1px solid white;*/
-	}
-	footer {
-		padding-left: 5%;
-		font-size: 0.5em;
-	}
+@media (min-width: 769px) {
+    body {
+        font-size: 22px;
+    }
+    header {
+        width: 26%;
+        height: 15%;
+    }
+    #game-board-container {
+        width: 41.33%;
+        height: 0;
+        float: right;
+        margin-right: 30%;
+        padding-bottom: 40.66%;
+    }
+    #user-ctrl-container {
+        height: 22.22%;
+        width: 26%;
+    }
+    #user-ctrl-container button {
+        margin-left: 30%;
+        font-size: 0.8em;
+        width: 70%;
+        height: 33.33%;
+    }
+    article {
+        /*border: 1px solid white;*/
+        margin-top: 11%;
+        margin-left: 7.5%;
+        width: 18.5%;
+        /*font-size: 0.6em;*/
+        text-align: center;
+    }
+    article p {
+        font-size: 0.7em;
+    }
+
+    footer {
+        padding-left: 5%;
+        font-size: 0.5em;
+    }
 }
-
