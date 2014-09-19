@@ -23,6 +23,7 @@ var Sudoku = (function($) {
         this.$sectMatrix = {};
         this.N = 9;
     };
+    
     Game.prototype.buildBoard = function() {
         var $tr, $td, sectIDi, sectIDj;
 
@@ -45,7 +46,7 @@ var Sudoku = (function($) {
                     .addClass('input-style')
                     .attr('maxlength', 1)
                     .attr('dirty', false) // This attr is used for clearBoard().
-                	.data('row', i)
+                	  .data('row', i)
                     .data('col', j)
                     .keyup(function(e) {
 
@@ -83,14 +84,15 @@ var Sudoku = (function($) {
             $table.append($tr);
         };
 
-        // This can be changed after generator function is implemented,
-        // however now we will only have one board.
-        // In future, we will add random fucntion for BoardInputValsGenerator*/
+        // This can be changed later,
+        // for now we will only have one board.
+        // In future, we will add BoardInputValsGenerator function.*/
 
         DummyBoardInputValsGenerator(this.$cellMatrix);
 
         return $table;
     };
+
     Game.prototype.clearBoard = function() {
         for (var i = 0; i < this.N; i++) {
             for (var j = 0; j < this.N; j++) {
@@ -117,7 +119,6 @@ var Sudoku = (function($) {
         this.clearBoard();
         getSolutionData(this.$cellMatrix);
     };
-
 
     Game.prototype.inputValidate = function(cellMatrix, value, data) {
 
@@ -174,7 +175,6 @@ var Sudoku = (function($) {
     };
 
     Game.prototype.onKeyUp = function(e, content, self) {
-
         if (e.keyCode === 8) { // Keycode 8 is Delete button
             toDefault($(content));
         }else {
@@ -191,8 +191,8 @@ var Sudoku = (function($) {
     /* Helper functions */
 
     var toDefault = function (content) {
-       content.attr('dirty', false);
-       content.removeClass('input-validate-false').removeClass('input-validate-true').addClass('input-style');   
+        content.attr('dirty', false);
+        content.removeClass('input-validate-false').removeClass('input-validate-true').addClass('input-style');   
     };
 
     var getSection = function (num) {
@@ -202,7 +202,6 @@ var Sudoku = (function($) {
     /* Singleton public methods */
 
     return {
-
         getInstance: function() {
             if (!_instance) {
                 _instance = init();
