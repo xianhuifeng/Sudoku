@@ -2,26 +2,30 @@ html {
     height: 100%;
 }
 body {
+    /*background: url(../imgs/kite.jpg) ;*/
     background-color: #78c2a9;
-    /*background: url(../imgs/cubes.png) ;*/
     color: #fff;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     height: 100%;
+
 }
 header {
     height: 9.5%;
-    /*  32px/320px */
-    /*border: 1px solid white;*/
 }
-footer {
-    font-size: 0.7em;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    bottom: -10%;
+header img {
+    /*border: 1px solid black;*/
+    width: 30%;
+    max-height: 100%;
+
+    -webkit-animation: fade-in-up 1s ease .2s 1 normal both;
+    -moz-animation: fade-in-up 1s linear .2s 1 normal both;
+    -o-animation: fade-in-up 1s linear .2s 1 normal both;
+    animation: fade-in-up 1s linear .2s 1 normal both;
 }
+
 #game-board-container {
+    -webkit-perspective: 25000px;
     position: relative;
     /*set to relative for child element position absolute use, so child can use this as base*/
     width: 100%;
@@ -29,8 +33,12 @@ footer {
     /* 100% of width */
     height: 0px;
     /*set height to 0 so we can use padding-bottom to as container*/
-    border-top: 4px solid #F62459;
+    /*border-top: 4px solid #F62459;*/
     /*border-bottom: 10px solid #F27935;*/
+    -webkit-animation: fade-in-down 1s ease .5s 1 normal both;
+    -moz-animation: fade-in-down 1s linear .5s 1 normal both;
+    -o-animation: fade-in-down 1s linear .5s 1 normal both;
+    animation: fade-in-down 1s linear .5s 1 normal both;
 }
 .parent-matrix {
     /*parent===#game-board-container*/
@@ -40,6 +48,18 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -ms-transform-origin: top left;
+    -o-transform-origin: top left;
+    transform-origin: top left;
+    
+
+
+    /*-webkit-animation: hinge 1s ease-in-out 1 normal both;*/
+/*    -moz-animation: hinge .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)  1 normal both;
+    -o-animation: hinge .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)  1 normal both;
+    animation: hinge .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)  1 normal both;*/
 }
 .section-even {
     position: relative;
@@ -65,6 +85,7 @@ footer {
     color: #ccc;
 }
 .input-validate-true {
+	-webkit-animation: rotating 5s infinite;
     transform: rotateY(360deg);
     background-color: #86E2D5 !important;
 }
@@ -80,7 +101,7 @@ footer {
     text-align: center;
     font-size: 1.25em;
     /* 20px/16px*/
-    font-weight: 400;
+    font-weight: 300;
     padding: 0;
     top: 0;
     left: 0;
@@ -89,7 +110,12 @@ footer {
 }
 #user-ctrl-container {
     height: 10.5%;
+    /*padding: 5%;*/
     /*border: 1px solid white;*/
+    -webkit-animation: fade-in-up 1s ease .5s 1 normal both;
+    -moz-animation: fade-in-up 1s linear .5s 1 normal both;
+    -o-animation: fade-in-up 1s linear .5s 1 normal both;
+    animation: fade-in-up 1s linear .5s 1 normal both;
 }
 #user-ctrl-container button {
     width: 33.33%;
@@ -99,10 +125,13 @@ footer {
     font-weight: 300;
     border: 1px solid #78c2a9;
     background-color: #3b434f;
+    z-index: 1;
     /*opacity: 0.7;*/
     transition-property: background-color;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
+
+
 }
 #user-ctrl-container button:hover {
     background-color: #fff;
@@ -112,15 +141,38 @@ footer {
     /*opacity: 0.9;*/
 }
 article {
-	padding: 0.4em;
+    padding: 0.7em;
     text-align: center;
     font-size: 1em;
     font-weight: 300;
     color: #fff;
+	-webkit-animation: fade-in-up 1s ease .5s 1 normal backwards;
+  	-moz-animation: fade-in-up 1s linear 1 normal backwards;
+  	-o-animation: fade-in-up 1s linear 1 normal backwards;
+  	animation: fade-in-up 1s linear 1 normal backwards;
 }
 .article-title {
     font-weight: 600;
 }
+
+.imgContainer {
+    display: none;
+    width: 20%;
+    position: relative;
+    margin-left: 40%;
+    border: 1px solid white;
+}
+
+.imgContainer img{
+    max-width: 100%;
+}
+/*footer {
+    font-size: 0.7em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: -10%;
+}*/
 /* Crappy Android portrait · width: 240px */
 
 @media (max-width: 241px) {
@@ -168,6 +220,7 @@ article {
         height: 12%;
     }
 
+
 }
 /* iPad portrait · width: 768px */
 
@@ -176,8 +229,8 @@ article {
         font-size: 20px;
     }
     header {
-        width: 33.33%;
-        height: 15%;
+        width: 50%;
+        /*height: 20%;*/
     }
     #game-board-container {
         width: 56.66%;
@@ -207,6 +260,19 @@ article {
         padding-right: 4.5%;
         text-align: center;
     }
+/*    .imgContainer {
+        display: none;
+        width: 15%;
+        position: relative;
+        margin-left: 15%;
+        top: -40%;
+        border: 1px solid white;
+    }
+    header img {
+        height: 100%;
+        width: 60%;
+        margin-left: 20%;
+    }*/
 
 }
 /* iPad landscape · width: 1024px */
@@ -219,7 +285,7 @@ article {
     }
     header {
         width: 26%;
-        height: 15%;
+        /*height: 15%;*/
     }
     #game-board-container {
         width: 41.33%;
@@ -239,19 +305,65 @@ article {
         height: 33.33%;
     }
     article {
-        /*border: 1px solid white;*/
-        margin-top: 11%;
-        margin-left: 7.5%;
+        position: relative;
+        padding-top: 0%;
+        top: -22%;
+        left: 73%;
         width: 18.5%;
         /*font-size: 0.6em;*/
         text-align: center;
+        /*border: 1px solid white;*/
     }
     article p {
         font-size: 0.7em;
     }
+    .article-title {
+        font-size: 1em;
 
-    footer {
-        padding-left: 5%;
-        font-size: 0.5em;
     }
+    .article-content {
+        padding-top: 5%;
+    }
+    .article-end {
+        padding-top: 5%;
+        font-weight: 700;
+    }
+
+/*    footer {
+        
+        /*padding-left: 5%; 
+        text-align: center;
+        padding-left: 20%;
+        bottom: -20%;
+        font-size: 0.5em;
+    }*/
+}
+
+@-webkit-keyframes fade-in-down {
+    0% {
+        transform:translateY(-20px);
+        opacity:0;
+    }
+/*    90% {transform:translateY(8px);
+        opacity:1;
+    }*/
+    100% {transform:translateY(0px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-in-up {
+    0% {
+        transform:translateY(40%);
+        opacity:0;
+    }
+
+    100% {transform:translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes hinge {
+    from {-webkit-transform: rotateX(90deg);}
+    to {-webkit-transform: rotateX(0deg);}
 }

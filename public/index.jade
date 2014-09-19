@@ -3,6 +3,7 @@ html
 	include includes/head.jade
 	body
 		header
+			img(src="imgs/sudoku-logo.svg")
 		div#game-board-container
 		div#user-ctrl-container
 			button.restart Restart
@@ -11,11 +12,14 @@ html
 		article
 			p.article-title How to play?
 			p.article-content.
-				If you don't know how to play, just
-				click the solution button. I can
-				help you.
+				The goal of SudoKu is to fill in a 9×9 grid with digits so that each column,
+				row, and 3×3 section contain the numbers between 1 to 9.
 			p.article-end Have fun!
+		div.imgContainer
+			img(src="imgs/birdy.png")
 
+		//- include includes/foot.jade
+		
 		script.
 			$(document).ready(function() {
 				var game = Sudoku.getInstance();
@@ -39,4 +43,3 @@ html
 					game.solution();
 				});
 			});
-		include includes/foot.jade

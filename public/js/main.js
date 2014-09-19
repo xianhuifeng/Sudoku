@@ -19,6 +19,7 @@ var Sudoku = (function($) {
     //Game initialization and logic.
     var Game = function() {
         this.$cellMatrix = {};
+        this.$sectMatric = {};
         this.N = 9;
     };
     Game.prototype.buildBoard = function() {
@@ -40,7 +41,7 @@ var Sudoku = (function($) {
                     .addClass('input-style')
                     .attr('maxlength', 1)
                     .attr('dirty', false) //This attr is used for clearBoard().
-                		.data('row', i)
+                	.data('row', i)
                     .data('col', j)
                     .keyup(function(e) {
 
@@ -55,9 +56,26 @@ var Sudoku = (function($) {
 
                 //Check the section of the input so we can set different class for each section
                 //and also we will use this section for validation.
+                sectIDi = getSection(i);
+                sectIDj = getSection(j);
 
-                sectIDi = Math.floor(i / 3);
-                sectIDj = Math.floor(j / 3);
+
+                //testing of making section matrix
+
+                //toStirng sectIDi and sectIDj
+                //concate the two string to make one key
+                var sectIDKey = sectIDi.toString() + sectIDj.toString();
+                //if this key not in the sectMatric obj
+                if(!this.$sectMatric[sectIDKey]){
+                    //create a new key and value pair
+                    this.$sectMatric[sectIDKey] = [];
+                    this.$sectMatric[sectIDKey].push(this.$cellMatrix[i][j]);
+                }else {
+                    //push the $cellMatrix[i][j] into the value of the key(the value is array)
+                    this.$sectMatric[sectIDKey].push(this.$cellMatrix[i][j]);
+                }
+
+                /////////testing end////
 
                 if ((sectIDi + sectIDj) % 2 === 0) {
                     $td.addClass('section-even');
@@ -74,7 +92,6 @@ var Sudoku = (function($) {
          In future, we will add random fucntion for BoardInputValsGenerator*/
 
         DummyBoardInputValsGenerator(this.$cellMatrix);
-
         return $table;
     };
     Game.prototype.clearBoard = function() {
@@ -100,20 +117,20 @@ var Sudoku = (function($) {
     };
 
     Game.prototype.getSolution = function() {
-
-        //Call method clearBoard() to set back attr dirty, disabled, and val()
         this.clearBoard();
         getSolutionData(this.$cellMatrix);
     };
 
-    //This validation is not implemented yet,
-    //it still needs to check odd and even parts. 
-    
+
     Game.prototype.inputValidate = function(cellMatrix, value, data) {
 
         var validData = true;
         var row = data.row;
         var col = data.col;
+        var sectIDRow = getSection(row);
+        var sectIDCol = getSection(col);
+        var sectIDRowCol = sectIDRow.toString() + sectIDCol.toString();
+        var counter = 0;
 
         //Check if value is empty,return true
         if (value === "") {
@@ -129,16 +146,25 @@ var Sudoku = (function($) {
         //Check data validation by row.
         for (var i = 0; i < this.N; i++) {
             if (i !== col && cellMatrix[row][i].val() === value) {
-                validData = false;
-                return validData;
+                return validData = false;
+
             }
         }
 
         //Check data validation by col.
         for (var j = 0; j < this.N; j++) {
             if (j !== row && cellMatrix[j][col].val() === value) {
-                validData = false;
-                return validData;
+                return validData = false;
+            }
+        }
+
+        //Check data validation by section.        
+        for (var k = 0; k < this.$sectMatric[sectIDRowCol].length; k++) {
+            if(this.$sectMatric[sectIDRowCol][k].val() === value){
+                counter += 1;
+                if(counter > 1){
+                    return validData = false;
+                }
             }
         };
 
@@ -147,16 +173,12 @@ var Sudoku = (function($) {
 
     Game.prototype.onKeyUp = function(e, content, self) {
 
-        /*If KeyCode is not 8, it means users are inserting value to input
-        We should set dirty to true.
-        We also should check if it is validate or not.
-        If validtae, remove input-style and add input-validate-false style.
-        And If not, add input-validate-true style.*/
-
-        if (e.keyCode != 8) {
-
-            //content attr is used for clearBoard() also.	
+        if (e.keyCode === 8) {// Keycode 8 is Delete button
+            toDefault($(content));
+        }else {
+            //Set content attr 'dirty' true is used for clearBoard().   
             $(content).attr('dirty', true);
+
             var isValidate = self.inputValidate(self.$cellMatrix, $(content).val(), $(content).data());
             if (!isValidate) {
                 $(content).addClass('input-validate-false');
@@ -164,19 +186,19 @@ var Sudoku = (function($) {
                 $(content).addClass('input-validate-true');
             }
         }
-
-
-        /*If keyCode is 8, it means the user pressed Delete button
-        We need to set the current input dirty to false again
-        And we need to swap classes back*/
-
-        if (e.keyCode === 8) {
-            $(content).attr('dirty', false);
-            $(content).removeClass('input-validate-false');
-            $(content).removeClass('input-validate-true');
-            $(content).addClass('input-style');
-        }
     };
+
+    //helper function 
+    var toDefault = function (content) {
+  
+       content.attr('dirty', false);
+       content.removeClass('input-validate-false').removeClass('input-validate-true').addClass('input-style');   
+
+    };
+    var getSection = function (num) {
+        return Math.floor(num/3);
+    };
+
 
     //Singleton public methods
     return {
