@@ -36,10 +36,6 @@ var DummyBoardInputValsGenerator = function(cellMatrix) {
 
 var getSolutionData = function(cellMatrix) {
     function setSolutionVal(i, j, value) {
-        //Set solution val
-        //Make solutijon input disabled true and dirty true so that user cannot 
-        //modify them and when user click restart we set will then back to disabled
-        //false, dirty false and val('')
         cellMatrix[i][j].val(value).attr('disabled', true).attr('dirty', true);
     };
     setSolutionVal(0, 2, 4);

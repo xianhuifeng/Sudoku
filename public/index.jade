@@ -18,27 +18,22 @@ html
 		div.imgContainer
 			img(src="imgs/birdy.png")
 
-		//- include includes/foot.jade
 		
 		script.
 			$(document).ready(function() {
 				var game = Sudoku.getInstance();
 
-				//when load page should append a new gameboard
 				$('#game-board-container').append(game.gameBoard());
 
-				//when click clear should reset the gameboard
 				$('.restart').on('click', function() {
 					game.reset();
 				});
 
-				//when click newGame should generate a new gameboard
 				$('.new-game').on('click', function() {
 					$('.parent-matrix').remove();
 					$('#game-board-container').append(game.gameBoard());
 				});
 
-				//when click solution should generate a solution gameboard
 				$('.solution').on('click', function () {
 					game.solution();
 				});
