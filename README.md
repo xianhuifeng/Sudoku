@@ -6,10 +6,10 @@ SudoKu
 ## Table of Contents
 
 1. [Usage](#usage)
-1. [Development](#development)
-1. [Installing Dependencies](#installing-dependencies)
-1. [Author](#Author)
-1. [License](#license)
+2. [Development](#development)
+3. [Installing Dependencies](#installing-dependencies)
+4. [Author](#Author)
+5. [License](#license)
 
 ## Usage
 
@@ -20,9 +20,9 @@ SudoKu
 3. Then you can drag and drop index.html file into your favorate browser.
 
 ## Development
--vanilla JS
--Jade
--CSS3
+- vanilla JS
+- Jade
+- CSS3
 
 ## Installing Dependencies
 
