@@ -6,18 +6,37 @@ SudoKu
 ## Table of Contents
 
 1. [Usage](#usage)
-1. [Requirements](#requirements)
 1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Contributing](#contributing)
+1. [Installing Dependencies](#installing-dependencies)
+1. [Author](#Author)
 1. [License](#license)
 
 ## Usage
 
 > To use SudoKu, please follow these three steps
 
-1.Clone this repo into your local.
-2.Install dependencies 
+1. Clone this repo into your local.
+2. [Install dependencies](#Installing Dependencies)
+3. Then you can drag and drop index.html file into your favorate browser.
 
-3.Then you can drag and drop index.html file into your favorate browser.
+## Development
+-vanilla JS
+-Jade
+-CSS3
+
+## Installing Dependencies
+
+From within the root directory:
+
+```sh
+sudo npm install -g bower
+npm install
+bower install
+```
+## Author
+Xianhui Feng 
+
+## Licence
+
+
+
