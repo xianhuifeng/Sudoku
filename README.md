@@ -23,6 +23,8 @@ SudoKu
 - vanilla JS
 - Jade
 - CSS3
+- jQuery
+- express.js (localhost:3000)
 
 ## Installing Dependencies
 
