@@ -8,9 +8,9 @@ SudoKu
 1. [Usage](#usage)
 2. [Development](#development)
 3. [Installing Dependencies](#installing-dependencies)
-4. [Reasoning behind technical choices](#Reasoning behind technical choices)
-5. [Changes will be implemented in future](#Changes will be implemented in future)
-6. [Author](#Author)
+4. [Reasoning behind technical choices](#reasoning behind technical choices)
+5. [Changes will be implemented in future](#changes will be implemented in future)
+6. [Author](#author)
 
 ## Usage
 
