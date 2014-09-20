@@ -46,8 +46,9 @@ node server.js
 
 ## Changes will be implemented in future
 1. Make more than one board and implement solution method.
-2. Use Sass as Style Sheets
+2. Use Sass as Style Sheets.
 3. Modify when user input is invalid, the game board should show the hint(why it is invalid, which cell has the same data which current cell).
+4. Make unit test.
 
 ## Author
 Xianhui Feng 
