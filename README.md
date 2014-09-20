@@ -17,7 +17,7 @@ SudoKu
 
 1. Clone this repo into your local.
 2. [Install dependencies](#Installing Dependencies)
-3. Then you can drag and drop index.html file into your favorate browser.
+3. Open your favorate browser and go to localhost:3000
 
 ## Development
 - vanilla JS
@@ -28,12 +28,14 @@ SudoKu
 
 ## Installing Dependencies
 
+First you need to have node.js installed in your computer.
 From within the root directory:
 
 ```sh
 sudo npm install -g bower
 npm install
 bower install
+node server.js
 ```
 ## Author
 Xianhui Feng 
