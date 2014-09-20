@@ -9,7 +9,7 @@ SudoKu
 2. [Development](#development)
 3. [Installing Dependencies](#installing-dependencies)
 4. [Reasoning behind technical choices](#Reasoning behind technical choices)
-5. [Changes will be implemented in future](#Changes will be implemented)
+5. [Changes will be implemented in future](#Changes will be implemented in future)
 6. [Author](#Author)
 
 ## Usage
@@ -44,7 +44,7 @@ node server.js
 - Jade: Jade is a templating language for html, it makes writing html less verbose and easier. It supports template inheritance and one can compile templates into re-usable functions.
 - express.js: express.js is a web application framework for node.It provides a thin layer of features fundamental to web application. The use of express APIs are more user-friendly and quick. 
 
-## Changes will be implemented
+## Changes will be implemented in future
 1. Make more than one board and implement solution method.
 2. Use Sass as Style Sheets
 3. Modify when user input is invalid, the game board should show the hint(why it is invalid, which cell has the same data which current cell).
