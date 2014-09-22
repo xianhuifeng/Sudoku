@@ -8,6 +8,7 @@ SudoKu
 1. [Usage](#usage)
 2. [Development](#development)
 3. [Installing Dependencies](#installing-dependencies)
+3. [Architecture](#architecture)
 4. [Reasoning behind technical choices](#reasoning-behind-technical-choices)
 5. [Changes will be implemented in future](#changes-will-be-implemented-in-future)
 6. [Author](#author)
@@ -39,10 +40,73 @@ bower install
 node server.js
 ```
 
+##Architecture
+- Singleton: Used singleton data structure for game board, generate one board at one time. 
+- Game board: Game board is created with DOM element. Each input DOM element stored in one value of $cellMatrix:
+
+```javascript
+{
+	0: {
+			0: {input element},
+			1: {input element},
+			2: {input element},
+			......
+			8: {input element}
+		},
+	1: {
+			0: {input element},
+			1: {input element},
+			2: {input element},
+			......
+			8: {input element}
+		},
+	.....
+	8: {
+			0: {input element},
+			1: {input element},
+			2: {input element},
+			......
+			8: {input element}
+	}
+}
+```
+Also the $sectMatrix stores each sections using section Key(Math.floor(cellIndex/3)):
+
+```javascript
+{
+	'00': [
+			$cellMatrix[0][0],
+			$cellMatric[0][1],
+			$cellMatrix[0][2],
+			$cellMatrix[1][0],
+			$cellMatrix[1][1],
+			...
+			$cellMatrix[2][2]
+			]
+	'01': [
+			$cellMatrix[0][3],
+			$cellMatrix[0][4],
+			$cellMatrix[0][5],
+			$cellMatrix[1][3],
+			...
+			$cellMatrix[2][5]
+			]
+	...
+	'22': [
+			$cellMatrix[6][6],
+			$cellMatrix[6][7],
+			$cellMatrix[6][8],
+			...
+			$cellMatrix[8][8]
+			]
+}
+``` 
 ## Reasoning behind technical choices
-- jQuery: jQuery is a fast, small and feature-rich JS library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. 
+- jQuery: It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. 
 - Jade: Jade is a templating language for html, it makes writing html less verbose and easier. It supports template inheritance and one can compile templates into re-usable functions.
-- express.js: express.js is a web application framework for node.It provides a thin layer of features fundamental to web application. The use of express APIs are more user-friendly and quick. 
+- gulp: for minify use.
+- CSS3: Will be replaced by Sass if have more time, but still super powerful for style and animation.
+- express.js: Used as localhost. For testing layout at http://www.responsinator.com.
 
 ## Changes will be implemented in future
 1. Make more than one board and implement solution method.
@@ -52,4 +116,3 @@ node server.js
 
 ## Author
 Xianhui Feng 
-

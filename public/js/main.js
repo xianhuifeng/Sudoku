@@ -93,6 +93,7 @@ var Sudoku = (function($) {
         // In future, we will add BoardInputValsGenerator function.*/
 
         DummyBoardInputValsGenerator(this.$cellMatrix);
+        console.log(this.$cellMatrix);
         return $table;
     };
 
