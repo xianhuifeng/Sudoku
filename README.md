@@ -41,7 +41,7 @@ node server.js
 ```
 
 ##Architecture
-- Singleton: Used singleton data structure for game board, generate one board at one time. (Notice that I would have to do more work to make some function public when testing, I might try other way to make functions public for testing if have more time.)
+- Singleton: Used singleton data structure for game board, generate one board at one time. (Notice that I would have to do more work to make some function public when testing, I might try other ways when design data structure if have more time.)
 - Game board: Game board is created with DOM element. Each input DOM element stored in one value of $cellMatrix:
 
 ```javascript
