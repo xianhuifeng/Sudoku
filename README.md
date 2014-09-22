@@ -41,7 +41,7 @@ node server.js
 ```
 
 ##Architecture
-- Singleton: Used singleton data structure for game board, generate one board at one time. 
+- Singleton: Used singleton data structure for game board, generate one board at one time. (Notice that I would have to do more work to make some function public when testing, I might try other way to make functions public for testing if have more time.)
 - Game board: Game board is created with DOM element. Each input DOM element stored in one value of $cellMatrix:
 
 ```javascript
@@ -104,15 +104,15 @@ Also the $sectMatrix stores each sections using section Key(Math.floor(cellIndex
 ## Reasoning behind technical choices
 - jQuery: It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. 
 - Jade: Jade is a templating language for html, it makes writing html less verbose and easier. It supports template inheritance and one can compile templates into re-usable functions.
-- gulp: for minify use.
+- gulp: For minify use.
 - CSS3: Will be replaced by Sass if have more time, but still super powerful for style and animation.
 - express.js: Used as localhost. For testing layout at http://www.responsinator.com.
 
 ## Changes will be implemented in future
 1. Make more than one board and implement solution method.
 2. Use Sass as Style Sheets.
-3. Modify when user input is invalid, the game board should show the hint(why it is invalid, which cell has the same data which current cell).
-4. Make unit test.
+3. Show winner animation.
+4. Make more unit test.
 
 ## Author
 Xianhui Feng 
