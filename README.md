@@ -26,6 +26,8 @@ SudoKu
 - Jade
 - CSS3
 - jQuery 
+- mocha/chai
+- gulp
 - express.js (localhost:3000)
 
 ## Installing Dependencies
@@ -102,10 +104,11 @@ Also the $sectMatrix stores each sections using section Key(Math.floor(cellIndex
 }
 ``` 
 ## Reasoning behind technical choices
-- jQuery: It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. 
+- jQuery: It almost does everything in my main.js. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. 
 - Jade: Jade is a templating language for html, it makes writing html less verbose and easier. It supports template inheritance and one can compile templates into re-usable functions.
 - gulp: For minify use.
 - CSS3: Will be replaced by Sass if have more time, but still super powerful for style and animation.
+- mocha/chai: Used for unit testing. 
 - express.js: Used as localhost. For testing layout at http://www.responsinator.com.
 
 ## Changes will be implemented in future
