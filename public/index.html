@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><title>Sudoku</title><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,700,400" rel="stylesheet" type="text/css"><link rel="stylesheet" href="./style/reset.css"><link rel="stylesheet" href="./style/style.css"><script src="./bower_components/jquery/dist/jquery.js"></script><script src="./js/data.js"></script><script src="./js/main.js"></script></head><body><header><img src="imgs/sudoku-logo.svg"></header><div id="game-board-container"></div><div id="user-ctrl-container"><button class="restart">Restart</button><button class="solution">Solution</button><button class="new-game">New Game</button></div><article><p class="article-title">How to play?</p><p class="article-content">The goal of SudoKu is to fill in a 9x9 grid with digits so that each column,
-row, and 3x3 section contain the numbers between 1 to 9.</p><p class="article-end">Have fun!</p></article><div class="imgContainer"><img src="imgs/birdy.png"></div><script>$(document).ready(function() {
+row, and 3x3 section contain the numbers between 1 to 9.</p><p class="article-end">Have fun!</p></article><script>$(document).ready(function() {
 	var game = Sudoku.getInstance();
 
 	$('#game-board-container').append(game.gameBoard());

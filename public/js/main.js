@@ -1,8 +1,9 @@
 var Sudoku = (function($) {
-    var _instance, _game = {};
+    var _instance, _game= {};
 
     var init = function() {
         _game = new Game();
+
         return {
             gameBoard: function() {
                 return _game.buildBoard();
@@ -12,6 +13,9 @@ var Sudoku = (function($) {
             },
             solution: function() {
                 _game.getSolution();
+            },
+            inputValidate : function(cellMatrix, value, data) {
+                _game.inputValidate(cellMatrix, value, data);
             }
         }
     };
@@ -46,7 +50,7 @@ var Sudoku = (function($) {
                     .addClass('input-style')
                     .attr('maxlength', 1)
                     .attr('dirty', false) // This attr is used for clearBoard().
-                	  .data('row', i)
+                	.data('row', i)
                     .data('col', j)
                     .keyup(function(e) {
 
@@ -89,7 +93,6 @@ var Sudoku = (function($) {
         // In future, we will add BoardInputValsGenerator function.*/
 
         DummyBoardInputValsGenerator(this.$cellMatrix);
-
         return $table;
     };
 
@@ -121,8 +124,8 @@ var Sudoku = (function($) {
     };
 
     Game.prototype.inputValidate = function(cellMatrix, value, data) {
-
         var validData = true;
+        console.log(data);
         var row = data.row;
         var col = data.col;
         var sectIDRow = getSection(row);
