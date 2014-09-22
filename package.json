@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/xianhuifeng/Sudoku",
   "dependencies": {
-    "express": "^4.9.0"
+    "chai": "^1.9.1",
+    "express": "^4.9.0",
+    "mocha": "^1.21.4"
   }
 }
