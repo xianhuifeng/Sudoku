@@ -24,6 +24,7 @@ header img {
     width: 100%;
     padding-bottom: 100%; /* 100% of width */
     height: 0px; /*set height to 0 so we can use padding-bottom to as container*/
+    border-top: 10px solid #F9690E;
     -webkit-animation: fade-in-down 1s ease .5s 1 normal both;
     -moz-animation: fade-in-down 1s ease .5s 1 normal both;
     -o-animation: fade-in-down 1s ease .5s 1 normal both;
