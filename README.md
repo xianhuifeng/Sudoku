@@ -2,6 +2,7 @@ SudoKu
 ======
 
 > SudoKu is one of the most popular puzzle games of all time. The goal of SudoKu is to fill a 9×9 grid with numbers so that each row, column and 3×3 section contain all of the digits between 1 and 9. As a logic puzzle, SudoKu is also an excellent brain game. If you play SudoKu daily, you will soon start to see improvements in your concentration and overall brain power.
+![Sudoku mobile UI design](/public/imgs/mobile.png)
 
 ## Table of Contents
 
